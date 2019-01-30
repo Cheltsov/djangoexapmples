@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Заголовок страницы</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'mainapp/css/bootstrap.min.css' %}" type="text/css">
+    <script src="{% static 'mainapp/js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1>{% include "mainapp/includes/some_html.html" %}</h1>
+            <p>
+                {% block content %}
+                {% endblock %}
+                {% include "mainapp/includes/some_html.html" %}
+            </p>
+            <a href="/" class="btn btn-success btn-lg">Главная страница</a>
+            <a href="/news" class="btn btn-primary btn-lg">Новости &raquo</a>
+            <a href="/contact" class="btn btn-info btn-lg">Контакты</a>
+        </div>
+    </div>
+    <div class="container">
+        <img src="{% static 'mainapp/images/img1.png' %}" alt="" class="img-thumbnail">
+        <hr>
+        &copy Все права защищены 2018
+    </div>
+</body>
+</html>
