@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'landing/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'landing/css/main.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Roboto" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'landing/js/bootstrap.js' %}"></script>
+</head>
+<body>
+
+
+
+    <div class="wrapper" style="background: url({% static 'landing/img/bg_img.jpg' %}); height: 100%">
+
+        <div class="wrapper-content">
+            {% include "landing/navbar.html" %}
+
+            {% block content %}
+            {% endblock content %}
+
+
+        </div>
+
+    </div>
+    {% include "landing/footer.html" %}
+
+</body>
+</html>
