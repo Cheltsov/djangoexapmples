@@ -21,9 +21,19 @@
                 <a class="nav-link disabled" href="#">Disabled</a>
             </li>
         </ul>
-        <a href="" id="basket-btn" class="btn btn-outline-success my-2 my-sm-0">Корзина <span>2</span></a>
+        <a href="" id="basket-btn" class="btn btn-outline-success my-2 my-sm-0">Корзина <span>
+
+            {% if products_total_nmb %}
+                {{ products_total_nmb }}
+            {% endif %}
+
+        </span></a>
         <div class="basket">
             <ul>
+                {% for products_in_basket in products_in_baskets %}
+                    <li>{{ products_in_basket.product.name }}, {{ products_in_basket.nmb }} шт. по  {{ products_in_basket.product.price }}
+                        <br><span data-product-id="{{ products_in_basket.id }}" class="delete-item">Удалить</span></li>
+                {% endfor %}
             </ul>
         </div>
 
