@@ -10,14 +10,21 @@
                 {% endfor %}
             </div>
             <div class="col-lg-6">
-                <h1 class="text-center">
-                    {{ product.name }}
-                </h1>
+                <h1 class="text-center">{{ product.name }}</h1>
                 <div>
                     <p>Price: {{ product.price }}</p>
                 </div>
                 <div>
                     {{ product.description }}
+                </div>
+                <div style="margin-top: 30px;">
+                    <form action="{% url "basket_adding" %}" class='form-inline' method="post" id="form_buying_product">
+                        {% csrf_token %}
+                        <label for="" style="color:white;margin-right: 10px;">Количество</label>
+                        <input type="number" name="number" value="1" min='1' class="form-control" style="margin-right: 10px;">
+                        <button type="submit" id="submit_btn" class="btn btn-success btn-buy" data-product-id="{{ product.id }}" data-product-name="{{ product.name }}" data-product-price="{{ product.price }}">Купить</button>
+                    </form>
+
                 </div>
             </div>
         </div>
